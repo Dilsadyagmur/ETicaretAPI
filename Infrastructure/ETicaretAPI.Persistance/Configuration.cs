@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Extensions.Configuration;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
@@ -9,16 +10,17 @@ namespace ETicaretAPI.Persistance
 {
    static class Configuration
     {
-        public string ConnectionString
+        static public string ConnectionString
         {
             get
             {
 
-                ConfigurationManager configurationManager = new();
-                configurationManager.SetBasePath(Directory.GetCurrentDirectory(), "../../Presentation/ETicaretAPI.API");
-                configurationManager.AddJsonFile("secret.json");
 
-                return configurationManager.GetConnectionString("");
+                Microsoft.Extensions.Configuration.ConfigurationManager configurationManager = new ();
+                configurationManager.SetBasePath(Path.Combine(Directory.GetCurrentDirectory(), "../../Presentation/ETicaretAPI.API"));
+                configurationManager.AddJsonFile("appsettings.Json");
+
+                return configurationManager.GetConnectionString("PostgreSql");
             }
 
         }

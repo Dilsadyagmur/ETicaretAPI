@@ -44,7 +44,7 @@ namespace ETicaretAPI.Persistance.Repositories
 
         public async Task<bool> DeleteById(string id)
         {
-          T model = await Table.FirstOrDefaultAsync(data=>data.Id == Guid.Parse(id));
+          T model = await Table.FindAsync(Guid.Parse(id));
            return Delete(model);
         }
 
