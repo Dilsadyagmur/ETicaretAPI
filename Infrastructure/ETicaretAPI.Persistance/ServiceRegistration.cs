@@ -1,6 +1,4 @@
-﻿using ETicaretAPI.Application.Abstraction;
-using ETicaretAPI.Persistance.Concrete;
-using ETicaretAPI.Persistance.Contexts;
+﻿using ETicaretAPI.Persistance.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using System;
