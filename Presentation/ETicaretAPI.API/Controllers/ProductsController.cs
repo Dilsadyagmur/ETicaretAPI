@@ -21,16 +21,16 @@ namespace ETicaretAPI.API.Controllers
             _productWriteRepository = productWriteRepository;
         }
         [HttpGet]
-        public async Task Get()
+        public async Task<IActionResult> Get()
         {
-            return;
-           
+            return  Ok(_productReadRepository.GetAll());
+
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(string id)
         {
-            return Ok(_productReadRepository.GetAll());
+            return Ok(await _productReadRepository.GetByIdAsync(id));
         }
 
 
