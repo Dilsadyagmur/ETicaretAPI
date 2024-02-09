@@ -23,14 +23,15 @@ namespace ETicaretAPI.API.Controllers
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            return  Ok(_productReadRepository.GetAll());
+            return  Ok(_productReadRepository.GetAll(false));
 
         }
+        //tracking istenmeyen kısımlar için false
 
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(string id)
         {
-            return Ok(await _productReadRepository.GetByIdAsync(id));
+            return Ok(await _productReadRepository.GetByIdAsync(id, false));
         }
 
 
@@ -43,7 +44,7 @@ namespace ETicaretAPI.API.Controllers
                 Stock = model.Stock,
                 Price = model.Price,
             });
-
+            //test amaçlı burada yapıldı
             await _productWriteRepository.SaveAsync();
             return StatusCode((int)HttpStatusCode.Created);
         }
