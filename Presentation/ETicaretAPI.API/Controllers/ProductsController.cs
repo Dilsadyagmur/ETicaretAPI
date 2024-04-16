@@ -72,6 +72,12 @@ namespace ETicaretAPI.API.Controllers
             return Ok();
         }
 
+        [HttpPut]
+        public async Task<IActionResult> put(VM_Update_Product model)
+        {
+            return Ok();
+        }
+
                                             
     }
 }
